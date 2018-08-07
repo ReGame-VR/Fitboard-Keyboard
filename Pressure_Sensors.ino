@@ -22,6 +22,7 @@ void setup() {
 
 void loop() 
 {
+  //initialize switch variables to OFF (0)
   int switch_1 = 0;
   int switch_2 = 0;
   int switch_3 = 0;
@@ -29,6 +30,7 @@ void loop()
   
   // Read the ADC (analog-to-digial converter), and calculate voltage from it
   int flexADC_1 = analogRead(FlexPin_1);
+  //store voltage read in flexV_i
   float flexV_1 = flexADC_1 * VCC / 1023.0;
 
   int flexADC_2 = analogRead(FlexPin_2);
@@ -39,7 +41,8 @@ void loop()
 
   int flexADC_4 = analogRead(FlexPin_4);
   float flexV_4 = flexADC_4 * VCC / 1023.0;
-  
+
+//if voltage read is greater than cut off voltage, change corresponding switch to ON (1)
 if (flexV_1 >= VoltCutoff) {
   switch_1 = 1;
 }
@@ -53,9 +56,12 @@ if (flexV_4 >= VoltCutoff) {
   switch_4 = 1;
 }
 
+//create an array to hold all voltage values
 float voltes[ ] = {flexV_1, flexV_2, flexV_3, flexV_4};
+//create an array to hold all switch values
 int switches[ ] = {switch_1, switch_2, switch_3, switch_4};
 
+//loop through array of switches to check which are ON
 for (int i=0; i < sizeof(switches); i++) {
   if (switches[i] == 1) {
     Serial.print("Switch ");
