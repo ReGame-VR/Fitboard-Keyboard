@@ -4,9 +4,9 @@ Circuit:
 -10K resistor attached to A5 from ground
 
 Sensor 1 --> Analog Pin 1
-Sensor 2 --> Analog Pin 1
-Sensor 3 --> Analog Pin 1
-Sensor 4 --> Analog Pin 1
+Sensor 2 --> Analog Pin 2
+Sensor 3 --> Analog Pin 3
+Sensor 4 --> Analog Pin 4
 */
 
 //Constants
